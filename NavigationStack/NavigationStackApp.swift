@@ -1,17 +1,15 @@
-//
-//  NavigationStackApp.swift
-//  NavigationStack
-//
-//  Created by Simon Gamble on 27/6/2023.
-//
-
 import SwiftUI
 
 @main
-struct NavigationStackApp: App {
+struct Swift_NavigationStackExample: App {
+    
+    @Environment(\.managedObjectContext) private var viewContext
+        
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack {
+                Page1()
+            }
         }
     }
 }
