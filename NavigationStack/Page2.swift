@@ -1,20 +1,29 @@
-//
-//  Page2.swift
-//  NavigationStack
-//
-//  Created by Simon Gamble on 27/6/2023.
-//
-
 import SwiftUI
 
 struct Page2: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
 
-struct Page2_Previews: PreviewProvider {
-    static var previews: some View {
-        Page2()
+    var message: String
+
+    var body: some View {
+        VStack(spacing: 10) {
+            Text(message)
+            Spacer()
+            Button(
+                action: {
+                    NavigationService.popView()
+                })
+            {
+                Text("Pop to page 1")
+            }
+            Button(
+                action: {
+                    NavigationService.pushView(content: AnyView(Page3(message: "Hi there, I'm page 3")))
+                })
+            {
+                Text("Push to page 3")
+            }
+        }
+        .padding(20)
+        .navigationTitle("Page 2")
     }
 }
